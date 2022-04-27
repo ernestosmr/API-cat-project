@@ -16,19 +16,19 @@ async function loadRandomCats(){
     
     if(response.status !== 200 ){
         spanError.innerText = 'Error' + response.status
-        return console.error('We had an error')
-    } 
-    const btnRandom1 = document.getElementById('fav1-btn')
-    const btnRandom2 = document.getElementById('fav2-btn')
-    const btnRandom3 = document.getElementById('fav3-btn')
-
-    img1.src = data[0].url;
-    img2.src = data[1].url;
-    img3.src = data[2].url;
-
-    btnRandom1.onclick = () => saveFavoriteCat(data[0].id);
-    btnRandom2.onclick = () => saveFavoriteCat(data[1].id);
-    btnRandom3.onclick = () => saveFavoriteCat(data[2].id);
+    } else{
+        const btnRandom1 = document.getElementById('fav1-btn')
+        const btnRandom2 = document.getElementById('fav2-btn')
+        const btnRandom3 = document.getElementById('fav3-btn')
+    
+        img1.src = data[0].url;
+        img2.src = data[1].url;
+        img3.src = data[2].url;
+    
+        btnRandom1.onclick = () => saveFavoriteCat(data[0].id);
+        btnRandom2.onclick = () => saveFavoriteCat(data[1].id);
+        btnRandom3.onclick = () => saveFavoriteCat(data[2].id);
+    }
 }
 async function loadFavoritesCats(){
     const response = await fetch(urlFavorites)
