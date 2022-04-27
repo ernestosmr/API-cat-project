@@ -35,23 +35,23 @@ async function loadFavoritesCats(){
     const data = await response.json();
     if(response.status !== 200 ){
         spanError.innerText = 'Error' + response.status
-        return console.error('something wrong happened')
+    } else{
+        console.log(data)
+        data.forEach( cat => {
+            const section = document.getElementById('fav-cats-articles')
+            const article = document.createElement('article')
+            const img = document.createElement('img')
+            const btn = document.createElement('button')
+            const btnText = document.createTextNode('🗑️')
+    
+            img.src = cat.image.url
+            btn.appendChild(btnText);
+    
+            article.appendChild(img)
+            article.appendChild(btn)
+            section.appendChild(article)
+        })
     }
-    console.log(data)
-    data.forEach( cat => {
-        const section = document.getElementById('fav-cats-articles')
-        const article = document.createElement('article')
-        const img = document.createElement('img')
-        const btn = document.createElement('button')
-        const btnText = document.createTextNode('🗑️')
-
-        img.src = cat.image.url
-        btn.appendChild(btnText);
-
-        article.appendChild(img)
-        article.appendChild(btn)
-        section.appendChild(article)
-    })
 }
 
 async function saveFavoriteCat(id){
