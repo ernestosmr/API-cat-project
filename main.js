@@ -32,10 +32,7 @@ async function loadRandomCats(){
 async function loadFavoritesCats(){
     const res = await fetch(urlFavorites)
     const data = await res.json();
-    console.log({
-        name: 'favorites',
-        data: data,
-    })
+
     if(res.status !== 200 ){
         spanError.innerText = 'Error' + res.status
     } else{
@@ -67,7 +64,6 @@ async function saveFavoriteCat(id){
     });
     const data = await res.json();
 
-    console.log(res.url)
 
     if(res.status !== 200 ) {
         spanError.innerText = 'Error' + response.status + data.message
