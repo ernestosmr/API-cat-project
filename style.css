@@ -30,7 +30,7 @@ header h1{
     background-color: #E4572E;
     font-weight: bold;
 }
-#reload:hover{
+#reload:hover, .random-cats-container button:hover , #fav-cats-articles button:hover{
     background-color: #b44625;
 }
 .random-cats-main-container{
@@ -80,19 +80,24 @@ header h1{
     text-align: center;
 }
 #fav-cats-container h2{
+    width: max-content;
+    margin-inline: auto;
     background-color: #A8C686;
-    padding: 5px 0;
+    padding: 5px 10px;
     border-radius: 20px;
     border: 1px solid black;
 }
 #fav-cats-articles{
+    max-width: 1000px;
+    margin-inline: auto;
     margin-top: 10px;
     background-color: #A8C686;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     border: 1px solid black;
-    padding: 5px 0;
+    padding: 20px 0;
     column-gap: 10px;
+    border-radius: 20px;
 }
 #fav-cats-articles article{
     display: grid;

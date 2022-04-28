@@ -1,7 +1,7 @@
 const urlRandom = 
 'https://api.thecatapi.com/v1/images/search?limit=3&api_key=f92b7854-d359-468b-abfd-16e804b8075c';
 const urlFavorites =
-'https://api.thecatapi.com/v1/favourites?limit=3&api_key=f92b7854-d359-468b-abfd-16e804b8075c';
+'https://api.thecatapi.com/v1/favourites?api_key=f92b7854-d359-468b-abfd-16e804b8075c';
 
 
 const btn = document.querySelector('button');
@@ -17,26 +17,28 @@ async function loadRandomCats(){
     if(response.status !== 200 ){
         spanError.innerText = 'Error' + response.status
     } else{
-        const btnRandom1 = document.getElementById('fav1-btn')
-        const btnRandom2 = document.getElementById('fav2-btn')
-        const btnRandom3 = document.getElementById('fav3-btn')
+        const btn1 = document.getElementById('fav1-btn')
+        const btn2 = document.getElementById('fav2-btn')
+        const btn3 = document.getElementById('fav3-btn')
     
         img1.src = data[0].url;
         img2.src = data[1].url;
         img3.src = data[2].url;
-    
-        btnRandom1.onclick = () => saveFavoriteCat(data[0].id);
-        btnRandom2.onclick = () => saveFavoriteCat(data[1].id);
-        btnRandom3.onclick = () => saveFavoriteCat(data[2].id);
+        btn1.onclick = () => saveFavoriteCat(data[0].id);
+        btn2.onclick = () => saveFavoriteCat(data[1].id);
+        btn3.onclick = () => saveFavoriteCat(data[2].id);
     }
 }
 async function loadFavoritesCats(){
-    const response = await fetch(urlFavorites)
-    const data = await response.json();
-    if(response.status !== 200 ){
-        spanError.innerText = 'Error' + response.status
+    const res = await fetch(urlFavorites)
+    const data = await res.json();
+    console.log({
+        name: 'favorites',
+        data: data,
+    })
+    if(res.status !== 200 ){
+        spanError.innerText = 'Error' + res.status
     } else{
-        console.log(data)
         data.forEach( cat => {
             const section = document.getElementById('fav-cats-articles')
             const article = document.createElement('article')
@@ -46,7 +48,6 @@ async function loadFavoritesCats(){
     
             img.src = cat.image.url
             btn.appendChild(btnText);
-    
             article.appendChild(img)
             article.appendChild(btn)
             section.appendChild(article)
@@ -68,13 +69,13 @@ async function saveFavoriteCat(id){
 
     console.log(res.url)
 
-    if(res.status !== 200 ){
+    if(res.status !== 200 ) {
         spanError.innerText = 'Error' + response.status + data.message
         return console.error(new Error)
     }
 }
 
-window.onload = loadRandomCats();
+loadRandomCats();
 loadFavoritesCats()
 btn.addEventListener('click', loadRandomCats);
 
