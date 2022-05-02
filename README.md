@@ -3,7 +3,7 @@
  - **API source:**
  [Cat-API](https://thecatapi.com/)
  - **Course related:**
- - [Consumo de API REST](https://platzi.com/cursos/api/)
+ [Consumo de API REST](https://platzi.com/cursos/api/)
  ## Progress:
  - Connect to an API using `fetch()`
  - Understand asynchronous JavaScript
