@@ -33,6 +33,7 @@ header h1{
 #reload:hover, .random-cats-container button:hover , #fav-cats-articles button:hover{
     background-color: #b44625;
 }
+
 .random-cats-main-container{
     width: 100%;
 }
@@ -74,6 +75,37 @@ header h1{
     box-shadow: 3px 3px 10px 2.5px rgba(0,0,0,0.39);
     background-color: #E4572E;
     font-weight: bold;
+}
+#uploading-cat-container{
+    text-align: center;
+    padding: 20px;
+    margin: 20px auto;
+    width: min(500px, 90%);
+    border-radius: 20px;
+    border: 1px solid black;
+    background-color: #A8C686;
+}
+#uploading-cat-container h2{
+    margin-bottom: 10px;
+}
+#uploading-cat-container button,
+#uploading-cat-container input::before{
+    background-color: #E4572E;
+    padding: 5px 10px;
+    border-radius: 10px;
+    border: 1px solid black;
+    box-shadow: 3px 3px 10px 2.5px rgb(0 0 0 / 39%);
+}
+#uploading-cat-container input::-webkit-file-upload-button {
+    display: none;
+}
+#uploading-cat-container input{
+    margin-bottom: 10px;
+}
+#uploading-cat-container input::before{
+    content: 'Select an image';
+    display: inline-block;
+    margin-right: 20px;
 }
 #fav-cats-container{
     margin: 20px 0;
