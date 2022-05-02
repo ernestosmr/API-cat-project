@@ -8,9 +8,9 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+    <span id="done"></span>
     <header>
-        <h1>Cats API 🐈</h1>
-        <span id="error"></span>
+        <h1>Cats API 🐈</h1>    
     </header>
     <section class="random-cats-main-container">
         <section class="random-cats-titles">
@@ -32,6 +32,13 @@
                 <button id="fav3-btn">⭐</button>
             </article>
         </section>
+    </section>
+    <section id-="uploading-cat-container">
+        <h2>Upload your new cat</h2>
+        <form id="uploading-form">
+            <input type="file" id='file' name="file">
+            <button type="button" onclick="uploadCatPicture();">Upload cat</button>
+        </form>
     </section>
     <section id="fav-cats-container">
         <h2>Favorites Cats</h2>

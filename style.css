@@ -113,6 +113,33 @@ header h1{
     background-color: #E4572E;
     font-weight: bold;
 }
+
+#done{
+    visibility: hidden;
+    display: block;
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #E4572E;
+    padding: 10px;
+    border-radius: 20px;
+    border: 1px solid black;
+    font-weight: bold;
+
+
+}
+@keyframes fadeOut {
+    0%{
+        opacity: 1;
+    }
+    50%{
+        opacity: .5;
+    }
+    100%{
+        opacity: 0;
+    }  
+}
+
 @media (min-width: 1200px) {
     .random-cats-main-container{
         max-width: 1000px;
